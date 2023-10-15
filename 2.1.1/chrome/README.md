@@ -1,3 +1,8 @@
+# ⛔ Хромдрайвер пока не удалось отладить для версии 2.1.1
+[⛔ Issue with chromedriver](https://github.com/apache/superset/issues/25284)
+
+Рекомендую, пока что, пользоваться firefox драйвером.
+
 # Команда для build локального образа
 
 ```
