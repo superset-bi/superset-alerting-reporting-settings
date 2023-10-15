@@ -1,7 +1,7 @@
-# ⛔ Хромдрайвер пока не удалось отладить для версии 2.1.1
-[⛔ Issue with chromedriver](https://github.com/apache/superset/issues/25284)
+# Как решить проблему с chromedriver для версии 2.1.1
+[⛔ Issue with chromedriver for Superset 2.1.1](https://github.com/apache/superset/issues/25284)
 
-Рекомендую, пока что, пользоваться firefox драйвером.
+Представленное решение в issue работает.
 
 # Команда для build локального образа
 

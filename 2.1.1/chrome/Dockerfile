@@ -10,6 +10,7 @@ RUN apt-get update -y \
           libx11-xcb1 \
           libasound2 \
           libxtst6 \
+          unzip \
           wget
 
 RUN apt-get update && \
@@ -17,10 +18,15 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends ./google-chrome-stable_current_amd64.deb && \
     rm -f google-chrome-stable_current_amd64.deb
 
-RUN wget -q https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
-    unzip chromedriver_linux64.zip -d /usr/bin && \
-    chmod 755 /usr/bin/chromedriver && \
-    rm -f chromedriver_linux64.zip
+# refer https://googlechromelabs.github.io/chrome-for-testing/
+# superset issue https://github.com/apache/superset/issues/25284
+RUN export CHROMEDRIVER_VERSION=$(curl --silent https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+    wget -q https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/${CHROMEDRIVER_VERSION}/linux64/chromedriver-linux64.zip && \
+    unzip chromedriver-linux64.zip && \
+    mv chromedriver-linux64/chromedriver /usr/bin/ && \
+    chmod 755 /usr/bin/chromedriver && \ 
+    rm -f chromedriver-linux64.zip && \
+    rm -f -r chromedriver-linux64
 
 RUN pip install --no-cache gevent psycopg2 redis
 
