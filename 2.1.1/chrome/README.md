@@ -23,5 +23,5 @@ sudo docker build -f Dockerfile --force-rm -t chromedriver-superset:2.1.1 .
 ## Добавляем настройки в superset_config.py
 Копируем настройки из файла add_to_superset_config.py в файл superset_config.py
 
-# Запускаем развертывание apache superset с образом firefox-superset
+# Запускаем развертывание apache superset с образом chromedriver-superset
 ```sudo docker-compose -f docker-compose-non-dev.yml up```
